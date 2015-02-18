@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="StroreModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="StroreModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ClientSet" EntityType="StroreModel.Client" />
+    <EntitySet Name="ManagerSet" EntityType="StroreModel.Manager" />
+    <EntitySet Name="ProductSet" EntityType="StroreModel.Product" />
+    <EntitySet Name="OrderSet" EntityType="StroreModel.Order" />
+    <AssociationSet Name="ManagerOrder" Association="StroreModel.ManagerOrder">
+      <End Role="Manager" EntitySet="ManagerSet" />
+      <End Role="Order" EntitySet="OrderSet" />
+    </AssociationSet>
+    <AssociationSet Name="ClientOrder" Association="StroreModel.ClientOrder">
+      <End Role="Client" EntitySet="ClientSet" />
+      <End Role="Order" EntitySet="OrderSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProductOrder" Association="StroreModel.ProductOrder">
+      <End Role="Product" EntitySet="ProductSet" />
+      <End Role="Order" EntitySet="OrderSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="StroreModel.ClientOrder" FromRole="Client" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Manager">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="StroreModel.ManagerOrder" FromRole="Manager" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="StroreModel.ProductOrder" FromRole="Product" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
+    <NavigationProperty Name="Manager" Relationship="StroreModel.ManagerOrder" FromRole="Order" ToRole="Manager" />
+    <NavigationProperty Name="Client" Relationship="StroreModel.ClientOrder" FromRole="Order" ToRole="Client" />
+    <NavigationProperty Name="Product" Relationship="StroreModel.ProductOrder" FromRole="Order" ToRole="Product" />
+    <Property Type="Int32" Name="Sum" Nullable="false" />
+  </EntityType>
+  <Association Name="ManagerOrder">
+    <End Type="StroreModel.Manager" Role="Manager" Multiplicity="1" />
+    <End Type="StroreModel.Order" Role="Order" Multiplicity="*" />
+  </Association>
+  <Association Name="ClientOrder">
+    <End Type="StroreModel.Client" Role="Client" Multiplicity="1" />
+    <End Type="StroreModel.Order" Role="Order" Multiplicity="*" />
+  </Association>
+  <Association Name="ProductOrder">
+    <End Type="StroreModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="StroreModel.Order" Role="Order" Multiplicity="*" />
+  </Association>
+</Schema>

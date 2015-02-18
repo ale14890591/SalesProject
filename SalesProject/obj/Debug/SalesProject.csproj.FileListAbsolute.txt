@@ -1,0 +1,10 @@
+c:\users\000\documents\visual studio 2012\Projects\SalesProject\SalesProject\bin\Debug\SalesProject.exe.config
+c:\users\000\documents\visual studio 2012\Projects\SalesProject\SalesProject\bin\Debug\SalesProject.exe
+c:\users\000\documents\visual studio 2012\Projects\SalesProject\SalesProject\bin\Debug\SalesProject.pdb
+c:\users\000\documents\visual studio 2012\Projects\SalesProject\SalesProject\bin\Debug\EntityFramework.dll
+c:\users\000\documents\visual studio 2012\Projects\SalesProject\SalesProject\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\000\documents\visual studio 2012\Projects\SalesProject\SalesProject\bin\Debug\EntityFramework.xml
+c:\users\000\documents\visual studio 2012\Projects\SalesProject\SalesProject\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\000\documents\visual studio 2012\Projects\SalesProject\SalesProject\obj\Debug\SalesProject.csprojResolveAssemblyReference.cache
+c:\users\000\documents\visual studio 2012\Projects\SalesProject\SalesProject\obj\Debug\SalesProject.exe
+c:\users\000\documents\visual studio 2012\Projects\SalesProject\SalesProject\obj\Debug\SalesProject.pdb
