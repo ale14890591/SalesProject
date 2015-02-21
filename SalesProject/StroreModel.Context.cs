@@ -13,10 +13,10 @@ namespace SalesProject
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class StroreModelContainer : DbContext
+    public partial class StoreModelContainer : DbContext
     {
-        public StroreModelContainer()
-            : base("name=StroreModelContainer")
+        public StoreModelContainer()
+            : base("name=StoreModelContainer")
         {
         }
     

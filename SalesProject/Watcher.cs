@@ -12,6 +12,20 @@ namespace SalesProject
 {
     public class Watcher : IDisposable
     {
+        private class FileContents
+        {
+            public string Manager { get; set; }
+            public List<OrderRecord> Orders = new List<OrderRecord>();
+        }
+
+        private struct OrderRecord
+        {
+            public DateTime Date { get; set; }
+            public string Client { get; set; }
+            public string Product { get; set; }
+            public int Sum { get; set; }
+        }
+
         public string Catalog { get; set; }
         private FileSystemWatcher _catalogWatcher;
         private bool _isDisposed = true;
@@ -29,7 +43,7 @@ namespace SalesProject
         {
             if (Catalog != null)
             {
-                var files = System.IO.Directory.GetFiles(Catalog, "*_????????.csv", SearchOption.TopDirectoryOnly);//"\\p{L}*_\\d{8}.csv"
+                var files = System.IO.Directory.GetFiles(Catalog, "*_????????.csv", SearchOption.TopDirectoryOnly);
                 foreach (var file in files)
                 {
                     StartFileParsingTask(file);
@@ -59,6 +73,7 @@ namespace SalesProject
         private void ParseAndAddToBase(object file)
         {
             AddToBase(ParseFile(file as string));
+            File.Move(file as string, Catalog + "\\Processed\\" + Regex.Match(file as string, "\\p{L}*_\\d{8}.csv").Value);
         }
 
         private FileContents ParseFile(string file)
@@ -100,7 +115,7 @@ namespace SalesProject
             Client client;
             Product product;
 
-            using (var context = new StroreModelContainer())
+            using (var context = new StoreModelContainer())
             {
                 lock (_lockManagers)
                 {

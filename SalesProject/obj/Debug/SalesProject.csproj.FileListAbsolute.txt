@@ -8,3 +8,6 @@ c:\users\000\documents\visual studio 2012\Projects\SalesProject\SalesProject\bin
 c:\users\000\documents\visual studio 2012\Projects\SalesProject\SalesProject\obj\Debug\SalesProject.csprojResolveAssemblyReference.cache
 c:\users\000\documents\visual studio 2012\Projects\SalesProject\SalesProject\obj\Debug\SalesProject.exe
 c:\users\000\documents\visual studio 2012\Projects\SalesProject\SalesProject\obj\Debug\SalesProject.pdb
+C:\Users\000\Documents\Visual Studio 2012\Projects\SalesProject\SalesProject\obj\Debug\SalesProject.ProjectInstaller.resources
+C:\Users\000\Documents\Visual Studio 2012\Projects\SalesProject\SalesProject\obj\Debug\SalesProject.WatcherService.resources
+C:\Users\000\Documents\Visual Studio 2012\Projects\SalesProject\SalesProject\obj\Debug\SalesProject.csproj.GenerateResource.Cache
